@@ -1,42 +1,46 @@
 import { Appbar } from "../Components/Appbar";
 import { BlogCard } from "../Components/BlogCard";
+import { BlogSkeleton } from "../Components/BlogSkeleton";
+import { useBlogs } from "../Hooks";
 
 export const Blogs = () => {
+  const { loading, blogs } = useBlogs();
+
+  if (loading) {
+    return (
+      <div>
+        <Appbar />
+        <div className="flex justify-center ">
+          <div>
+            <BlogSkeleton />
+            <BlogSkeleton />
+            <BlogSkeleton />
+            <BlogSkeleton />
+            <BlogSkeleton />
+            <BlogSkeleton />
+            <BlogSkeleton />
+            <BlogSkeleton />
+            <BlogSkeleton />
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div>
       <Appbar />
       <div className="flex justify-center ">
-        <div className=" max-w-xl">
-          <BlogCard
-            authorName={"Somesh"}
-            title={
-              "How an Ugly Single-Page Website Makes $5000 a Month with Affiliate Marketing"
-            }
-            content={
-              "No need to create a fancy and modern website with hundereds of pages to make money online. Making money online is the dream for man..."
-            }
-            publishedDate={"2nd Feb 2024"}
-          />
-          <BlogCard
-            authorName={"Somesh"}
-            title={
-              "How an Ugly Single-Page Website Makes $5000 a Month with Affiliate Marketing"
-            }
-            content={
-              "No need to create a fancy and modern website with hundereds of pages to make money online. Making money online is the dream for man..."
-            }
-            publishedDate={"2nd Feb 2024"}
-          />
-          <BlogCard
-            authorName={"Somesh"}
-            title={
-              "How an Ugly Single-Page Website Makes $5000 a Month with Affiliate Marketing"
-            }
-            content={
-              "No need to create a fancy and modern website with hundereds of pages to make money online. Making money online is the dream for man..."
-            }
-            publishedDate={"2nd Feb 2024"}
-          />
+        <div className=" ">
+          {blogs.map((blog) => (
+            <BlogCard
+              id={blog.id}
+              authorName={blog.author.name}
+              title={blog.title}
+              content={blog.content}
+              publishedDate={"2nd Feb 2024"}
+            />
+          ))}
         </div>
       </div>
     </div>

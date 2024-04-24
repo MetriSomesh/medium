@@ -6,6 +6,7 @@ import { Blogs } from "./Pages/Blogs";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import "./App.css";
+import { Publish } from "./Components/Publish";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/signin" element={<SignIn />}></Route>
           <Route path="/blogs" element={<Blogs />}></Route>
           <Route path="/blog/:id" element={<Blog />}></Route>
+          <Route path="/publish" element={<Publish />}></Route>
         </Routes>
       </BrowserRouter>
     </>

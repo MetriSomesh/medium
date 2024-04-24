@@ -1,3 +1,29 @@
+import { Appbar } from "../Components/Appbar";
+import { FullBlog } from "../Components/FullBlog";
+import { Spinner } from "../Components/Spinner";
+import { useBlog } from "../Hooks";
+import { useParams } from "react-router-dom";
 export const Blog = () => {
-  return <div>blog</div>;
+  const { id } = useParams();
+  const { loading, blog } = useBlog({
+    id: id || "",
+  });
+
+  if (loading) {
+    return (
+      <div>
+        <Appbar />
+        <div className=" h-screen flex flex-col justify-center">
+          <div className="flex justify-center">
+            <Spinner />
+          </div>
+        </div>
+      </div>
+    );
+  }
+  return (
+    <div>
+      <FullBlog blog={blog} />
+    </div>
+  );
 };
