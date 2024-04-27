@@ -6,7 +6,8 @@ In this project I have used MERN stack to develop this clone.
 
 1.SignUp Page: 
 
-![signup](https://github.com/MetriSomesh/medium/assets/80524132/dde4bb4f-cdf4-45f6-9364-80ccaa2b77f0)
+![signup](https://github.com/MetriSomesh/medium/assets/80524132/ad1f042c-f3fb-40bf-bda9-6faf2616f93f)
+
 
 2.Home Page:
 
